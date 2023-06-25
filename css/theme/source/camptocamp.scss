@@ -1,0 +1,95 @@
+/**
+ * Camptocamp theme for reveal.js.
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(./fonts/inter/inter.css);
+
+$camptocampOrangeColor: #ff680a;
+$camptocampGreyColor: #7a7f82;
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #ffffff;
+
+$mainColor: $camptocampGreyColor;
+$headingColor: $camptocampOrangeColor;
+
+$mainFontSize: 42px;
+$mainFont: 'Inter', Helvetica, sans-serif;
+$headingFont: 'Inter', Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 600;
+$linkColor: $camptocampOrangeColor;
+$linkColorHover: lighten($linkColor, 15%);
+$selectionBackgroundColor: lighten($linkColor, 25%);
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+.reveal-viewport {
+	.slide-background.title {
+		background: #000000;
+	}
+
+	#logo-title {
+		content: url(../img/logo-title.svg);
+		position: fixed;
+		top: 2%;
+		left: 2%;
+		height: 15%;
+		z-index: 1;
+	}
+
+	#logo-header-left {
+		content: url(../img/logo-header-left.svg);
+		position: fixed;
+		top: 2%;
+		left: 2%;
+		height: 5%;
+		z-index: 1;
+	}
+
+	#logo-header-right {
+		content: url(../img/logo-header-right.svg);
+		position: fixed;
+		top: 2%;
+		right: 2%;
+		height: 5%;
+		z-index: 1;
+	}
+
+	&:not(.title),
+	&.overview {
+		#logo-title {
+			display: none;
+		}
+	}
+
+	&.title,
+	&.overview {
+		#logo-header-left,
+		#logo-header-right {
+			display: none;
+		}
+	}
+
+	section.title ul:has(>li>.author) {
+		text-align: center;
+		margin: 0;
+	}
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------

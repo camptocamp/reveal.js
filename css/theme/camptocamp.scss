@@ -1,0 +1,92 @@
+/**
+ * Camptocamp theme for reveal.js.
+ */
+
+// Load utils
+@use 'sass:color';
+@use 'template/mixins' as mixins;
+
+$camptocampOrangeColor: #ff680a;
+$camptocampGreyColor: #7a7f82;
+
+// Inject theme variables (with some overrides)
+@use 'template/settings'
+	with(
+		$background-color: #ffffff,
+
+		$main-color: $camptocampGreyColor,
+		$main-font: "'Inter', 'Helvetica', sans-serif",
+		$main-font-size: 42px,
+
+		$heading-color: $camptocampOrangeColor,
+		$heading-font: "'Inter', 'Helvetica', sans-serif",
+		$heading-font-weight: 600,
+
+		$heading1-size: 2.5em,
+		$heading2-size: 1.6em,
+		$heading3-size: 1.3em,
+		$heading4-size: 1em,
+
+		$link-color: $camptocampOrangeColor,
+		$link-color-hover: color.scale($camptocampOrangeColor, $lightness: 15%),
+		$selection-background-color: color.scale($camptocampOrangeColor, $lightness: 25%)
+	);
+
+// Inject the theme template
+@use 'template/theme';
+
+// Include theme-specific fonts
+@import url('./fonts/inter/inter.css');
+
+.reveal-viewport {
+	.slide-background.title {
+		background: #000000;
+	}
+
+	#logo-title {
+		content: url(./img/camptocamp/logo-title.svg);
+		position: fixed;
+		top: 2%;
+		left: 2%;
+		height: 15%;
+		z-index: 1;
+	}
+
+	#logo-header-left {
+		content: url(./img/camptocamp/logo-header-left.svg);
+		position: fixed;
+		top: 2%;
+		left: 2%;
+		height: 5%;
+		z-index: 1;
+	}
+
+	#logo-header-right {
+		content: url(./img/camptocamp/logo-header-right.svg);
+		position: fixed;
+		top: 2%;
+		right: 2%;
+		height: 5%;
+		z-index: 1;
+	}
+
+	&:not(.title),
+	&.overview {
+		#logo-title {
+			display: none;
+		}
+	}
+
+	&.title,
+	&.overview {
+		#logo-header-left,
+		#logo-header-right {
+			display: none;
+		}
+	}
+
+	section.title ul:has(> li > .author) {
+		text-align: center;
+		margin: 0;
+	}
+}

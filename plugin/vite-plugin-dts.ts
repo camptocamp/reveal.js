@@ -19,5 +19,6 @@ export function createPluginDts(pluginName: string) {
 				content,
 			};
 		},
+		aliasesExclude: ['reveal.js'],
 	});
 }

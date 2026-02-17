@@ -1,5 +1,5 @@
 {
-	"name": "reveal.js",
+	"name": "@camptocamp/reveal.js",
 	"version": "6.0.1",
 	"description": "The HTML Presentation Framework",
 	"homepage": "https://revealjs.com",
@@ -87,7 +87,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/hakimel/reveal.js.git"
+		"url": "git://github.com/camptocamp/reveal.js.git"
 	},
 	"devEngines": {
 		"runtime": {

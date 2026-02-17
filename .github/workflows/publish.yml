@@ -1,0 +1,39 @@
+name: "Publish NPM package"
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  publish:
+    name: "Publish"
+    runs-on: "ubuntu-22.04"
+
+    permissions:
+      contents: "read"
+      packages: "write"
+
+    steps:
+      - name: "Check out repository"
+        id: "checkout"
+        uses: "actions/checkout@v4"
+
+      - name: "Set up Node.js"
+        id: "setup-node"
+        uses: "actions/setup-node@v4"
+        with:
+          registry-url: "https://npm.pkg.github.com"
+          cache: "npm"
+
+      - name: "Run npm clean-install"
+        id: "run-npm-clean-install"
+        run: |
+          npm clean-install
+
+      - name: "Run npm publish"
+        id: "run-npm-publish"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm publish --access 'public'
